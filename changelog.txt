@@ -1,0 +1,20 @@
+Mudanças no codigo:
+
+  -Adição dos arquivos menu.rb e placar.rb
+  -Adição dos requerimentos no arquivo main para os novos arquivos criados
+  -Adição de uma classe Menu_Falcon no arquivo falcon.rb
+  -Adição de duas linhas de código na classe DesertFalconGame no arquivo main.rb:
+      -linha 91 "MainMenu.new.show"
+        -assim, quando esc for pressionado durante a partida, o jogo retornará para o menu ao invés de fechar completamente
+      -linha 100 "MainMenu.new.show"
+        -inicia o menu quando o jogo é aberto
+  ->Placar
+    -O arquivo do placar armazena as pontuações e iniciais no formato:
+    
+      "1. AAA -- 00002. AAA -- 00003. AAA -- 00004. AAA -- 00005. AAA -- 00006. AAA -- 00007. AAA -- 00008. AAA -- 00009. AAA -- 000010. AAA -- 0000"
+
+      -O primeiro numero é a posição, as três letras são as iniciais e os 4 últimos números são as pontuações
+      -Não há quebra de linha no arquivo pois causa conflito com a impressão
+      -Para gravar o placar, o formato utilizado deve ser o mesmo, para que ele possa ser lido e impresso na tela
+      -Caso o formato precise ser alterado, este deve ser modificado no método test_file da classe scoreboard, no arquivo scoreboard.rb, que cria o arquivo caso não exista nenhum ainda
+        Além disso, no método draw, no bloco que imprime o placar, deve se alterar a variável line_size para o novo número de caracteres por linha

@@ -1,4 +1,3 @@
-# DesertFalcon P3
 UNB - Universidade de Brasília
 Técnicas de Programação 2
 Prof. Genaina Nunes
