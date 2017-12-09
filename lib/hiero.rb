@@ -12,6 +12,12 @@ class Hiero < GameObject
 		super(coordX, coordY, 1, 22, 16, "./Assets/Images/hiero.png", 150, 0.0)
 	end
 	def is_out_of_bounds
+		raise ArgumentError, 'Erro de argumentos' unless (
+			(@box.x.is_a? Numeric) &&
+			(@box.y.is_a? Numeric) &&
+			(@box.w.is_a? Numeric) &&
+			(@box.h.is_a? Numeric)
+		)
 		return (@box.x < -@box.w/2 || @box.y > WINDOW_HEIGHT + @box.h/2)
 	end
 end
