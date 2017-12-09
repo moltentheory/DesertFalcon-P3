@@ -51,7 +51,8 @@ class Falcon < GameObject
 		raise ArgumentError, 'Erro de argumentos' unless (
 			(@vel_x.is_a? Numeric) &&
 			(@vel_y.is_a? Numeric) &&
-			(@angle.is_a? Numeric)
+			(@angle.is_a? Numeric) &&
+			(@draw_angle.is_a? Numeric)
 		)
 		@vel_x += Gosu.offset_x(@angle, 0.5)
 		@vel_y += Gosu.offset_y(@angle, -0.5)
@@ -62,7 +63,8 @@ class Falcon < GameObject
 		raise ArgumentError, 'Erro de argumentos' unless (
 			(@vel_x.is_a? Numeric) &&
 			(@vel_y.is_a? Numeric) &&
-			(@angle.is_a? Numeric)
+			(@angle.is_a? Numeric) &&
+			(@draw_angle.is_a? Numeric)
 		)
 		@vel_x += Gosu.offset_x(@angle, -0.5)
 		@vel_y += Gosu.offset_y(@angle, 0.5)
@@ -72,7 +74,10 @@ class Falcon < GameObject
 	def move_up
 		raise ArgumentError, 'Erro de argumentos' unless (
 			(@box.y.is_a? Numeric) &&
-			(@box.z.is_a? Numeric)
+			(@box.z.is_a? Numeric) &&
+			@box.z <= 3 &&
+			@box.z >= 1
+
 		)
 		if @box.z < 3
 			@box.y -= SHADOW_DISTANCE_PER_ZLEVEL
@@ -82,7 +87,9 @@ class Falcon < GameObject
 	def move_down
 		raise ArgumentError, 'Erro de argumentos' unless (
 			(@box.y.is_a? Numeric) &&
-			(@box.z.is_a? Numeric)
+			(@box.z.is_a? Numeric) &&
+			@box.z <= 3 &&
+			@box.z >= 1
 		)
 		if @box.z > 1
 			@box.y += SHADOW_DISTANCE_PER_ZLEVEL
