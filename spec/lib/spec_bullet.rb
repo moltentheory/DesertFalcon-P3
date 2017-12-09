@@ -33,9 +33,12 @@ RSpec.describe Bullet do
   end
 
   describe '#is_out_of_bounds' do
-    it 'tests for out_of_bounds' do
+    it 'out of bounds - argumentos' do
       expect{Bullet.new(0, 0, 0, 0, 0, 0).is_out_of_bounds()}.not_to raise_error ArgumentError
 
+		end
+
+		it 'out of bounds - saida' do
       expect(Bullet.new(WINDOW_WIDTH + 5, 0, 0, 0, 0, 0).is_out_of_bounds()).to eq(true)
       expect(Bullet.new(0, -12, 0, 0, 0, 0).is_out_of_bounds()).to eq(true)
       expect(Bullet.new(WINDOW_WIDTH + 5, -12, 0, 0, 0, 0).is_out_of_bounds()).to eq(true)
