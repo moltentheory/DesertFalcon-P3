@@ -1,7 +1,7 @@
 require 'gosu'
-require 'constants'
-require 'box'
-require 'gameobject'
+require_relative 'constants'
+require_relative 'box'
+require_relative 'gameobject'
 
 class Bullet < GameObject
 	def initialize(x, y, z, vel_x, vel_y, angle) 

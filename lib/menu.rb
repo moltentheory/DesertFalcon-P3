@@ -1,10 +1,11 @@
-require 'constants'
+require 'gosu'
 
-require 'sprite'
-require 'box'
-require 'gameobject'
-require 'falcon'
-require 'scoreboard'
+require_relative 'constants'
+require_relative 'sprite'
+require_relative 'box'
+require_relative 'gameobject'
+require_relative 'falcon'
+require_relative 'scoreboard'
 
 
 
