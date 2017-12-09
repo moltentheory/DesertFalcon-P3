@@ -1,5 +1,5 @@
 require 'gosu'
-require 'constants'
+require_relative 'constants'
 
 class Box
 	attr_accessor :x, :y, :z, :w, :h
@@ -19,6 +19,8 @@ class Box
 	end
 
 	def intersects(box)
+		raise ArgumentError, 'Erro de argumentos' unless box.is_a? Box
+
 		if(@z == box.z || (@z == 0 && box.z == 1) || (@z == 1 && box.z == 0) )
 			return (((@x - box.x).abs * 2 < (@w + box.w)) && ((@y - box.y).abs * 2 < (@h + box.h)));
 		else 

@@ -1,17 +1,16 @@
 require 'gosu'
 
-require 'constants'
-
-require 'sprite'
-require 'box'
-require 'gameobject'
-require 'hiero'
-require 'falcon'
-require 'menu'
-require 'scoreboard'
-require 'enemy'
-require 'obstacle'
-require 'bullet'
+require_relative 'constants'
+require_relative 'sprite'
+require_relative 'box'
+require_relative 'gameobject'
+require_relative 'hiero'
+require_relative 'falcon'
+require_relative 'menu'
+require_relative 'scoreboard'
+require_relative 'enemy'
+require_relative 'obstacle'
+require_relative 'bullet'
 
 class DesertFalconGame < Gosu::Window
 	def initialize

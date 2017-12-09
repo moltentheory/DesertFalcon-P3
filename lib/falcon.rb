@@ -1,8 +1,8 @@
 require 'gosu'
-require 'constants'
-require 'box'
-require 'gameobject'
-require 'bullet'
+require_relative 'constants'
+require_relative 'box'
+require_relative 'gameobject'
+require_relative 'bullet'
 
 class Falcon < GameObject
 	attr_accessor :score
