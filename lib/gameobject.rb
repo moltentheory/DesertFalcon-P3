@@ -1,7 +1,7 @@
 require 'gosu'
-require './constants'
-require './box'
-require './sprite'
+require 'constants'
+require 'box'
+require 'sprite'
 
 class GameObject
 	attr_accessor :box

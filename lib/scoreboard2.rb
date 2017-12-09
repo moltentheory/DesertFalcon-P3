@@ -1,9 +1,9 @@
-require './constants'
+require 'constants'
 
-require './sprite'
-require './box'
-require './gameobject'
-require './falcon'
+require 'sprite'
+require 'box'
+require 'gameobject'
+require 'falcon'
 
 #Placar
 #----

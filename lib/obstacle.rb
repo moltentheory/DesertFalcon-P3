@@ -1,7 +1,7 @@
 require 'gosu'
-require './constants'
-require './box'
-require './gameobject'
+require 'constants'
+require 'box'
+require 'gameobject'
 
 class Obstacle < GameObject
 	def initialize

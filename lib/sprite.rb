@@ -1,5 +1,5 @@
 require 'gosu'
-require './constants'
+require 'constants'
 
 class Sprite
 	def initialize(file_name, width, height, animation_speed)

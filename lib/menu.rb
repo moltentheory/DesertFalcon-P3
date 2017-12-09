@@ -1,10 +1,10 @@
-require './constants'
+require 'constants'
 
-require './sprite'
-require './box'
-require './gameobject'
-require './falcon'
-require './scoreboard'
+require 'sprite'
+require 'box'
+require 'gameobject'
+require 'falcon'
+require 'scoreboard'
 
 
 
