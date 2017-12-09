@@ -1,11 +1,20 @@
 require 'gosu'
-require './constants'
+require 'constants'
 
 class Box
 	attr_accessor :x, :y, :z, :w, :h
 	@x = @y = @z = @w = @h = 0
 
 	def initialize(x, y, z, w, h)
+		raise ArgumentError, 'Erro de argumentos' unless (	
+															(x.is_a? Numeric) &&
+															(y.is_a? Numeric) &&
+															(z.is_a? Numeric) &&
+															(w.is_a? Numeric) &&
+															(h.is_a? Numeric) &&
+															w >= 0 &&
+															h >= 0
+														 )
 		@x, @y, @z, @w, @h = x, y, z, w, h
 	end
 
