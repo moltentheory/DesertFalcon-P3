@@ -4,7 +4,19 @@ require_relative 'box'
 require_relative 'gameobject'
 
 class Bullet < GameObject
-	def initialize(x, y, z, vel_x, vel_y, angle) 
+	def initialize(x, y, z, vel_x, vel_y, angle)
+		raise ArgumentError, 'Erro de argumentos' unless (
+															(x.is_a? Numeric) &&
+															(y.is_a? Numeric) &&
+															(z.is_a? Numeric) &&
+															(vel_x.is_a? Numeric) &&
+															(vel_y.is_a? Numeric) &&
+															(angle.is_a? Numeric) &&
+															vel_x > 0 &&
+															vel_y > 0	&&
+															angle > 0 &&
+															angle < 180
+														 )
 		super(x, y, z, 4, 11, "./Assets/Images/bullet.png", 999, angle)
 		@vel_x, @vel_y = vel_x, vel_y
 	end
