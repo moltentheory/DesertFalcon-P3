@@ -16,7 +16,7 @@ class GameObject
 															(file_name.is_a? String) &&
 															(animation_speed.is_a? Numeric) &&
 															(angle.is_a? Numeric) &&
-															((has_shadow.is_a? TrueClass) || (has_shadow.is_a? FalseClass))
+															(!!has_shadow == has_shadow)
 														 )
 		@angle = @draw_angle = angle
 		@sprite = Sprite.new(file_name, width, height, animation_speed)
@@ -48,7 +48,7 @@ class GameObject
 
 	def draw
 		raise ArgumentError, 'Erro de argumentos' unless (
-			(@has_shadow.is_a? Boolean) &&
+			(!!@has_shadow == @has_shadow) &&
 			(@sprite.is_a? Sprite) &&
 			(@box.x.is_a? Numeric) &&
 			(@box.y.is_a? Numeric) &&

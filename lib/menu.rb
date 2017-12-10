@@ -1,11 +1,13 @@
 require 'gosu'
 
+require_relative 'gamewindow'
 require_relative 'constants'
 require_relative 'sprite'
 require_relative 'box'
 require_relative 'gameobject'
 require_relative 'falcon'
 require_relative 'scoreboard'
+
 
 
 
