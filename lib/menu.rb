@@ -1,13 +1,13 @@
 require 'gosu'
 
-require_relative 'gamewindow'
+
 require_relative 'constants'
 require_relative 'sprite'
 require_relative 'box'
 require_relative 'gameobject'
 require_relative 'falcon'
 require_relative 'scoreboard'
-
+require_relative 'gamewindow'
 
 
 
@@ -18,6 +18,8 @@ class MainMenu < Gosu::Window
 
 
 	def initialize
+		raise ArgumentError, 'Erro de argumentos' unless (Gosu::milliseconds.is_a? Numeric)
+
 		super WINDOW_WIDTH, WINDOW_HEIGHT
 		self.caption = "Desert Falcon 2.0 - MENU"
 
@@ -34,6 +36,11 @@ class MainMenu < Gosu::Window
 
 
 	def mouse_check
+		raise ArgumentError, 'Erro de argumentos' unless (
+															(mouse_x.is_a? Numeric) &&
+															(mouse_y.is_a? Numeric)
+														)
+
 		#jogar
 		if (mouse_x>=158 and mouse_x<=322) and (mouse_y>=135 and mouse_y <=207)
 			play
@@ -54,6 +61,8 @@ class MainMenu < Gosu::Window
 
 
 	def button_down(id)
+		raise ArgumentError, 'Erro de argumentos' unless (id.is_a? Numeric)
+
 		if id == Gosu::MsLeft
 			mouse_check
     else
@@ -69,11 +78,23 @@ class MainMenu < Gosu::Window
 
 
 	def update
+		raise ArgumentError, 'Erro de argumentos' unless (
+															(Gosu::milliseconds.is_a? Numeric)
+														)
 		@elapsed_time = Gosu::milliseconds/2
 	end
 
 
 	def draw
+		raise ArgumentError, 'Erro de argumentos' unless (
+															(Gosu::milliseconds.is_a? Numeric) &&
+															(@elapsed_time.is_a? Numeric) &&
+															(@menu_player.is_a? Menu_Falcon) &&
+															(@menu_bg.is_a? Gosu::Image) &&
+															(@menu_shader.is_a? Gosu::Image) &&
+															(@menu_font.is_a? Gosu::Font)
+														)
+
 
 		@menu_player.draw
 
@@ -129,6 +150,8 @@ end
 class HighScore < Gosu::Window
 
 	def initialize (player_score=0)
+		raise ArgumentError, 'Erro de argumentos' unless (player_score.is_a? Numeric)
+
 		super WINDOW_WIDTH, WINDOW_HEIGHT
 		self.caption = "Desert Falcon 2.0 - MENU"
 
@@ -147,7 +170,7 @@ class HighScore < Gosu::Window
 
 		@score = player_score
 
-		test_file
+		#test_file
 
 	end
 
@@ -170,6 +193,10 @@ class HighScore < Gosu::Window
 
 
 	def mouse_check
+		raise ArgumentError, 'Erro de argumentos' unless (
+															(mouse_x.is_a? Numeric) &&
+															(mouse_y.is_a? Numeric)
+														)
 		if (mouse_x>=139 and mouse_x<=340) and (mouse_y>=409 and mouse_y <=451)
 			save_score
 			close
@@ -179,6 +206,10 @@ class HighScore < Gosu::Window
 
 
 	def increment
+		raise ArgumentError, 'Erro de argumentos' unless (
+															(@player_name_position.is_a? Numeric) &&
+															(@player_name.is_a? String)
+														)
 		char = @player_name[@player_name_position]
 		char.next!
 		@player_name[@player_name_position] = char
@@ -186,6 +217,10 @@ class HighScore < Gosu::Window
 
 
 	def decrement
+		raise ArgumentError, 'Erro de argumentos' unless (
+															(@player_name_position.is_a? Numeric) &&
+															(@player_name.is_a? String)
+														)
 		char = @player_name[@player_name_position]
 		char = (char.ord-1).chr
 		@player_name[@player_name_position] = char
