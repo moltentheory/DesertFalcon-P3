@@ -35,7 +35,7 @@ RSpec.describe DesertFalconGame do
 	end
 	describe '#on_death' do
 		it 'erros de entrada' do
-			expect{ DesertFalconGame.new.draw }.not_to raise_error ArgumentError
+			expect{ DesertFalconGame.new }.not_to raise_error ArgumentError
 		end
 	end
 

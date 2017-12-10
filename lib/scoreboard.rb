@@ -12,6 +12,8 @@ class Scoreboard < Gosu::Window
 
 
   def initialize
+	raise ArgumentError, 'Erro de argumentos' unless (Gosu::milliseconds.is_a? Numeric)
+
     super WINDOW_WIDTH, WINDOW_HEIGHT
     self.caption = "Desert Falcon 2.0 - PLACAR"
 
@@ -30,6 +32,11 @@ class Scoreboard < Gosu::Window
 
 
   def mouse_check
+  		raise ArgumentError, 'Erro de argumentos' unless (
+															(mouse_x.is_a? Numeric) &&
+															(mouse_y.is_a? Numeric)
+														)
+
     if (mouse_x>=17 and mouse_x<=112) and (mouse_y>=416 and mouse_y <=442)
 			close
       MainMenu.new.show
@@ -54,11 +61,20 @@ class Scoreboard < Gosu::Window
 
 
   def update
+  	raise ArgumentError, 'Erro de argumentos' unless (Gosu::milliseconds.is_a? Numeric)
     @elapsed_time = Gosu::milliseconds
   end
 
 
   def draw
+		raise ArgumentError, 'Erro de argumentos' unless (
+															(Gosu::milliseconds.is_a? Numeric) &&
+															(@elapsed_time.is_a? Numeric) &&
+															(@menu_player.is_a? Menu_Falcon) &&
+															(@menu_bg.is_a? Gosu::Image) &&
+															(@menu_shader.is_a? Gosu::Image) &&
+															(@menu_font.is_a? Gosu::Font)
+														)
 
 		@menu_player.draw
 
@@ -100,6 +116,8 @@ class Scoreboard < Gosu::Window
 
 
   def button_down(id)
+	raise ArgumentError, 'Erro de argumentos' unless (id.is_a? Numeric)
+
     case id
     when Gosu::KB_ESCAPE
       close

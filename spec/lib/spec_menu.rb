@@ -87,10 +87,21 @@ RSpec.describe HighScore do
 			expect( HighScore.new.needs_cursor? ).to eq(true)
 		end
 	end
-	describe '#play' do
+	describe '#increment' do
 		it 'erros de entrada' do
-			expect{ HighScore.new }.not_to raise_error ArgumentError
+			expect{ HighScore.new.increment }.not_to raise_error ArgumentError
 		end
 	end
+	describe '#decrement' do
+		it 'erros de entrada' do
+			expect{ HighScore.new.decrement }.not_to raise_error ArgumentError
+		end
+	end
+	describe '#save_score' do
+		it 'erros de entrada' do
+			expect{ HighScore.new.save_score }.not_to raise_error ArgumentError
+		end
+	end
+
 
 end

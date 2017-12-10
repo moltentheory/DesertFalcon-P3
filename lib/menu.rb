@@ -228,6 +228,7 @@ class HighScore < Gosu::Window
 
 
 	def button_down(id)
+		raise ArgumentError, 'Erro de argumentos' unless (id.is_a? Numeric)
 
 		case id
 		when Gosu::KB_LEFT, Gosu::GP_LEFT
@@ -254,11 +255,23 @@ class HighScore < Gosu::Window
 	end
 
 	def update
+		raise ArgumentError, 'Erro de argumentos' unless (Gosu::milliseconds.is_a? Numeric)
 		@elapsed_time = Gosu::milliseconds/2
 	end
 
 
 	def draw
+		raise ArgumentError, 'Erro de argumentos' unless (
+															(@elapsed_time.is_a? Numeric) &&
+															(@menu_player.is_a? Menu_Falcon) &&
+															(@menu_bg.is_a? Gosu::Image) &&
+															(@menu_shader.is_a? Gosu::Image) &&
+															(@menu_font.is_a? Gosu::Font) &&
+															(@player_name_position.is_a? Numeric) &&
+															(@player_name_blink.is_a? Numeric) &&
+															(@player_name.is_a? String) &&
+															(@score.is_a? Numeric)
+														)
 
 		@menu_player.draw
 
@@ -439,6 +452,10 @@ class HighScore < Gosu::Window
 
 
 	def save_score
+		raise ArgumentError, 'Erro de argumentos' unless (
+															(@player_name.is_a? String) &&
+															(@score.is_a? Numeric)
+														)
 		string = IO.read("scoreboard.txt")
 		temp=""
 
@@ -493,6 +510,8 @@ class HighScore < Gosu::Window
 			string[129..131] = @player_name
 			#posicao 10
 		end
+
+		raise ArgumentError, 'Erro de saida' unless (string.is_a? String)
 
 		IO.write("scoreboard.txt", string, 0)
 
