@@ -27,6 +27,13 @@ Instalar a gema Gosu (gem install gosu)
 Executar o interpretador ruby da pasta do projeto (ruby lib/main.rb)
 
 
+Diretivas para teste:
+
+Instalar o RSpec (gem install rspec)
+
+Executar o RSpec da pasta do projeto (rspec)
+
+
 Como Jogar:
 
 Utilize as teclas W, A, S, D para movimentar o Falcon
